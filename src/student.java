@@ -11,83 +11,89 @@ class student
 	 int userInt = displayMenu();
 		
 
-	  while(userInt != 12)
+	  while(userInt != 16)
 	  {
-		  
+		 
 		  switch(userInt)
 		  {
 		  	case 1:
 		  		addStudent(list);
-		  		userInt = displayMenu();
-		  		
+
 		  		break;
 		  		
 		  		
 		  	case 2:
 		  		removeStudent(list);
-		  		userInt = displayMenu();
-		  		
+
 		  		break;
 		  		
 		  	case 3:
-		  		addC(list);
-		  		userInt = displayMenu();
-		  		
+		  		addC(list, "", "");
+
 		  		break;
+		  		
 		  	
 		  	case 4:
 		  		//removeC(list);
-		  		userInt = displayMenu();
+
 		  		
 		  		break;
 		  		
 		  	case 5:
 		  		displayStudent(list);
-		  		userInt = displayMenu();
-		  		
 		  		break;
 		  		
 		  	case 6:
-		  		Checkbalance(list);
-		  		userInt = displayMenu();
-		  		
+		  		Displaystudentdetail(list);
 		  		break;
 		  		
-		  	case 7:
-		  		Addbalance(list);
-		  		userInt = displayMenu();
 		  		
+		  	case 7:
+		  		Checkbalance(list);
 		  		break;
 		  		
 		  	case 8:
-		  		Addtardy(list);
-		  		userInt = displayMenu();
-		  		
+		  		Addbalance(list);
 		  		break;
 		  		
 		  	case 9:
-		  		Addabsent(list);
-		  		userInt = displayMenu();
-		  		
+		  		Addtardy(list);
 		  		break;
 		  		
 		  	case 10:
-		  		
+		  		Addabsent(list);
+		  		break;
 		  		
 		  	case 11:
+		  		Addaddress(list);
+		  		break;
 		  		
-		  	
+		  	case 12:
+		  		Changeaddress(list);
+		  		break;
 		  		
+
+		  	case 13:
+		  		Addparent(list);
+		  		break;
 		  		
+		  	case 14:
+		  		Removeparent(list);
+		  		break;
+		  		
+		  	case 15:
+		  		Choosestudent(list);
+		  		break;
 		  		
 		  	default:
-		  		userInt = displayMenu();
 		  		
 		  		break;
 		  		
-		  	
-	          	
+
 		  }
+		  
+		  userInt = displayMenu();
+		  
 	  }	
 	
 	
@@ -98,58 +104,371 @@ class student
   
   public static int displayMenu()
   {
-    System.out.print("--------------MAIN MENU--------------\n");
-    System.out.print("1. Add Student\n");
-    System.out.print("2. Remove Student\n");
-    System.out.print("3. Add Course\n");
-    System.out.print("4. Remove Course\n");
-    System.out.print("5. Display Student list\n");
-    System.out.print("6. Check balance\n");
-    System.out.print("7. Add to balance\n");
-    System.out.print("8. Add tardy\n");
-    System.out.print("9. Add absent\n");
-    System.out.print("10. Add address\n");
-    System.out.print("11. Change address\n");
-    
-    System.out.print("12. Exit\n");
+	System.out.print("\n\n--------------MAIN MENU--------------\n");
+	System.out.print("1. Add Student | 2. Remove Student\n");
+	System.out.print("3. Add Course | 4. Remove Course\n");
+	System.out.print("5. Display Student list | 6. Display Student list in detail\n");
+	System.out.print("7. Check balance | 8. Add to balance\n");
+	System.out.print("9. Add tardy | 10. Add absent\n");
+	System.out.print("11. Add address | 12. Change address\n");
+	System.out.print("13. Add parent | 14. Remove parent\n");
+	System.out.print("15. Choose student\n");
+	    
+	    
+	    
+	System.out.print("16. Exit\n");
+	
+	
+	Scanner input = new Scanner(System.in);
+	System.out.print("Enter an integer: ");
+	int userInt = input.nextInt();
+		  
+	
 
-
-    Scanner input = new Scanner(System.in);
-    System.out.print("Enter an integer: ");
-
-    int userInt = input.nextInt();
-    
-    input.close();
-    
-    return userInt;
+	
+	return userInt;
 
   }
   
   
-  public static int displayAltMenu()
+  public static int displayAltmenu()
   {
-    System.out.print("--------------STUDENT MENU--------------\n");
-    System.out.print("1. Add Course\n");
-    System.out.print("2. Remove Course\n");
-    System.out.print("3. Check balance\n");
-    System.out.print("4. Add to balance\n");
-    System.out.print("5. Add tardy\n");
-    System.out.print("6. Add absent\n");
-    System.out.print("7. Add address\n");
-    System.out.print("8. Change address\n");
-    
-    System.out.print("9. Exit\n");
+	System.out.print("\n\n--------------STUDENT MENU--------------\n");
 
+	System.out.print("3. Add Course | 4. Remove Course\n");
+	System.out.print("5. Display Student detail\n");
+	System.out.print("7. Check balance | 8. Add to balance\n");
+	System.out.print("9. Add tardy | 10. Add absent\n");
+	System.out.print("11. Add address | 12. Change address\n");
+	System.out.print("13. Add parent | 14. Remove parent\n");
+	    
+	System.out.print("16. Exit\n");
+	
+	
+	Scanner input = new Scanner(System.in);
+	System.out.print("Enter an integer: ");
+	int userInt = input.nextInt();
+		  
+	
 
-    Scanner input = new Scanner(System.in);
-    System.out.print("Enter an integer: ");
+	return userInt;
 
-    int userInt = input.nextInt();
-    
-    input.close();
-    
-    return userInt;
+  }
+  
+  
+  public static void Choosestudent(ArrayList<newStudent> list)
+  {
+	  Scanner input = new Scanner(System.in);
+	  
+	  System.out.print("Enter student first name: ");
+	  String userfname = input.nextLine();
+	  
+	  while(userfname.length() <= 0)
+	  {
+		  System.out.print("Reenter student first name: ");
+		  userfname = input.nextLine();
+	  }
+	    
+	  System.out.print("Enter student last name: ");
+	  String userlname = input.nextLine();
+	  
+	  while(userlname.length() <= 0)
+	  {
+		  System.out.print("Reenter student last name: ");
+		  userlname = input.nextLine();
+	  }
+	  
 
+	  int userInt = displayAltmenu();
+	  
+	  
+	  while(userInt != 16)
+	  {
+		 
+		  switch(userInt)
+		  {
+		  		
+		  	case 3:
+		  		addC(list, userfname, userlname);
+
+		  		break;
+		  		
+		  	
+		  	case 4:
+		  		//removeC(list, userfname, userlname);
+
+		  		
+		  		break;
+		  		
+		  	case 5:
+		  		displaySpecificstudent(list, userfname, userlname);
+		  		break;
+
+		  		
+		  	case 7:
+		  		Checkbalance(list);
+		  		break;
+		  		
+		  	case 8:
+		  		Addbalance(list);
+		  		break;
+		  		
+		  	case 9:
+		  		Addtardy(list);
+		  		break;
+		  		
+		  	case 10:
+		  		Addabsent(list);
+		  		break;
+		  		
+		  	case 11:
+		  		Addaddress(list);
+		  		break;
+		  		
+		  	case 12:
+		  		Changeaddress(list);
+		  		break;
+		  		
+
+		  	case 13:
+		  		Addparent(list);
+		  		break;
+		  		
+		  	case 14:
+		  		Removeparent(list);
+		  		break;
+		  		
+		  	case 15:
+		  		Choosestudent(list);
+		  		break;
+		  		
+		  	default:
+		  		
+		  		break;
+		  		
+
+		  }
+		  
+		  userInt = displayAltmenu();
+		  
+	  }	
+		
+
+	  
+	 
+	  
+  }
+
+  
+  
+  
+  
+  
+  public static void Removeparent(ArrayList<newStudent> list)
+  {
+	  	Scanner input = new Scanner(System.in);
+		    
+		System.out.print("Enter student first name: ");
+		String userfname = input.nextLine();
+		
+		
+		System.out.print("Enter student last name: ");
+		String userlname = input.nextLine();
+		
+		
+		for(int i = 0; i < list.size(); i++)
+		{
+			if(userfname.equals(list.get(i).getfname()) && userlname.equals(list.get(i).getlname()))
+			{
+				if(list.get(i).getParent().length() > 0)
+				{
+					list.get(i).removeParent();
+				}
+				else
+				{
+					System.out.println("Parent name is emtpy");
+				}
+				
+				
+		    	return;
+		    }
+		   
+		}
+		
+		
+		System.out.printf("Student %s %s, not found", userfname, userlname);
+  }
+  
+  
+  public static void Addparent(ArrayList<newStudent> list)
+  {
+	  	Scanner input = new Scanner(System.in);
+		    
+		System.out.print("Enter student first name: ");
+		String userfname = input.nextLine();
+		
+		
+		System.out.print("Enter student last name: ");
+		String userlname = input.nextLine();
+		
+		
+		for(int i = 0; i < list.size(); i++)
+		{
+			if(userfname.equals(list.get(i).getfname()) && userlname.equals(list.get(i).getlname()))
+			{
+				System.out.print("Enter contact number: ");
+				int parentcontact = input.nextInt();
+				
+				while(parentcontact <= 0 && parentcontact < 1000000000)
+				{
+					System.out.print("Reenter contact number: ");
+					parentcontact = input.nextInt();
+					
+				}
+				
+				System.out.print("Enter parent first name: ");
+				String parentfname = input.nextLine();
+				String parentlname;
+				
+				if(parentfname.length() > 0)
+				{
+					System.out.print("Enter parent last name: ");
+					parentlname = input.nextLine();
+					
+					if(parentlname.length() > 0)
+					{
+						list.get(i).addParent(parentfname, parentlname, parentcontact);
+					}
+					else
+					{
+						System.out.print("Reenter parent last name: ");
+						parentlname = input.nextLine();
+						
+						list.get(i).addParent(parentfname, parentlname, parentcontact);
+					}
+				}
+				else
+				{
+					System.out.print("Reenter parent first name: ");
+					parentfname = input.nextLine();
+					
+						
+					System.out.print("Enter parent last name: ");
+					parentlname = input.nextLine();
+					
+					if(parentlname.length() > 0)
+					{
+						list.get(i).addParent(parentfname, parentlname, parentcontact);
+					}
+					else
+					{
+						System.out.print("Reenter parent last name: ");
+						parentlname = input.nextLine();
+						
+						list.get(i).addParent(parentfname, parentlname, parentcontact);
+					}
+				
+					
+				}
+				
+				
+				
+		    	return;
+		    }
+		   
+		}
+		
+		
+		
+		System.out.printf("Student %s %s, not found", userfname, userlname);
+  }
+  
+  
+  
+  public static void Changeaddress(ArrayList<newStudent> list)
+  {
+	  	Scanner input = new Scanner(System.in);
+		    
+		System.out.print("Enter student first name: ");
+		String userfname = input.nextLine();
+		
+		
+		System.out.print("Enter student last name: ");
+		String userlname = input.nextLine();
+		
+		
+		for(int i = 0; i < list.size(); i++)
+		{
+			if(userfname.equals(list.get(i).getfname()) && userlname.equals(list.get(i).getlname()))
+			{
+				
+				System.out.print("Enter new address: ");
+				String userAddress = input.nextLine();
+				
+				if(userAddress.length() > 0)
+				{
+					list.get(i).changeAdress(userAddress);
+				}
+				else
+				{
+					System.out.print("Reenter new address: ");
+					userAddress = input.nextLine();
+					
+					list.get(i).changeAdress(userAddress);
+				}
+				
+				
+				
+		    	return;
+		    }
+		   
+		}
+		
+		
+		System.out.printf("Student %s %s, not found", userfname, userlname);
+  }
+  
+  public static void Addaddress(ArrayList<newStudent> list)
+  {
+	  	Scanner input = new Scanner(System.in);
+		    
+		System.out.print("Enter student first name: ");
+		String userfname = input.nextLine();
+		
+		
+		System.out.print("Enter student last name: ");
+		String userlname = input.nextLine();
+		
+		
+		for(int i = 0; i < list.size(); i++)
+		{
+			if(userfname.equals(list.get(i).getfname()) && userlname.equals(list.get(i).getlname()))
+			{
+				
+				System.out.print("Enter address: ");
+				String userAddress = input.nextLine();
+				
+				if(userAddress.length() > 0)
+				{
+					list.get(i).addAddress(userAddress);
+				}
+				else
+				{
+					System.out.print("Reenter address: ");
+					userAddress = input.nextLine();
+					
+					list.get(i).addAddress(userAddress);
+				}
+				
+				
+				
+		    	return;
+		    }
+		   
+		}
+		
+		
+		System.out.printf("Student %s %s, not found", userfname, userlname);
   }
   
   public static void Addtardy(ArrayList<newStudent> list)
@@ -170,13 +489,13 @@ class student
 			{
 
 				list.get(i).addTardy();
-				input.close();
+				
 		    	return;
 		    }
 		   
 		}
 		
-		input.close();
+		
 		System.out.printf("Student %s %s, not found", userfname, userlname);
   }
   
@@ -198,13 +517,13 @@ class student
 			{
 
 				list.get(i).addAbsent();
-				input.close();
+				
 		    	return;
 		    }
 		   
 		}
 		
-		input.close();
+		
 		System.out.printf("Student %s %s, not found", userfname, userlname);
   }
   
@@ -230,13 +549,13 @@ class student
 				
 				list.get(i).addBalance(userAmount);
 				
-				input.close();
+				
 		    	return;
 		    }
 		   
 		}
 		
-		input.close();
+		
 		System.out.printf("Student %s %s, not found", userfname, userlname);
   }
 
@@ -257,15 +576,17 @@ class student
 			if(userfname.equals(list.get(i).getfname()) && userlname.equals(list.get(i).getlname()))
 			{
 				list.get(i).displayBalance();
-				input.close();
+				
 		    	return;
 		    }
 		   
 		}
 		
-		input.close();
+		
 		System.out.printf("Student %s %s, not found", userfname, userlname);
   }
+  
+
 
   public static void addStudent(ArrayList<newStudent> list)
   {
@@ -291,7 +612,6 @@ class student
     
     
     
-    input.close();
     System.out.print("Student created\n");
     
 
@@ -316,13 +636,12 @@ class student
     	{
     		list.remove(i);
     		System.out.printf("Student %s %s, removed\n", userfname, userlname);
-    		input.close();
+
     		return;
     	}
    
     }
     
-    input.close();
     
     System.out.printf("Student %s %s, not found", userfname, userlname);
     
@@ -330,44 +649,110 @@ class student
   }
 
   
+
   
-public static void addC(ArrayList<newStudent> list)
+public static void addC(ArrayList<newStudent> list, String fname, String lname)
 {
-    Scanner input = new Scanner(System.in);
-    
-    
-    System.out.print("Enter student first name: ");
-    String userfname = input.nextLine();
-    
-    System.out.print("Enter student last name: ");
-    String userlname = input.nextLine();
-    
-    
-    for(int i = 0; i < list.size(); i++)
-    {
-    	if(userfname.equals(list.get(i).getfname()) && userlname.equals(list.get(i).getlname()))
-    	{
-    		System.out.print("Enter course name: ");
-    	    String userCourse = input.nextLine();
-    	    
-    	    
-    	    list.get(i).addCourse(userCourse);
-    	    input.close();
-    	    return;
-    		
-    	}
-   
-    }
-    
-    input.close();
-    
-    
+	String userfname = null, userlname = null;
+	Scanner input = new Scanner(System.in);
+	
+	if(fname.length() >= 0 && lname.length() >= 0)
+	{
+		for(int i = 0; i < list.size(); i++)
+		{
+		    	if(fname.equals(list.get(i).getfname()) && lname.equals(list.get(i).getlname()))
+		    	{
+		    		System.out.print("Enter course name: ");
+		    		String userCourse = input.nextLine();
+		
+		    		while(userCourse.length() <= 0)
+		    		{
+		    				System.out.print("Reenter course name: ");
+		    				userCourse = input.nextLine();
+		    	    	
+		    	    }
+		    	  
+		    	    
+		    	    list.get(i).addCourse(userCourse);
+		    	    return;
+		   
+		    		
+		         }
+		   
+		 }
+		System.out.printf("Student %s %s, not found", userfname, userlname);
+		return;
+	}
+	
+
+	System.out.print("Enter student first name: ");
+	 userfname = input.nextLine();
+	 
+	 while(userfname.length() <= 0)
+	  {
+		  System.out.print("Reenter student first name: ");
+		  userfname = input.nextLine();
+	  }
+	    
+	 System.out.print("Enter student last name: ");
+	 userlname = input.nextLine();
+	 
+	 while(userlname.length() <= 0)
+	  {
+		  System.out.print("Reenter student last name: ");
+		  userlname = input.nextLine();
+	  }
+	    
+	    
+	for(int i = 0; i < list.size(); i++)
+	{
+	    	if(userfname.equals(list.get(i).getfname()) && userlname.equals(list.get(i).getlname()))
+	    	{
+	    		System.out.print("Enter course name: ");
+	    		String userCourse = input.nextLine();
+	
+	    		while(userCourse.length() <= 0)
+	    		{
+	    				System.out.print("Reenter course name: ");
+	    				userCourse = input.nextLine();
+	    	    	
+	    	    }
+	    	  
+	    	    
+	    	    list.get(i).addCourse(userCourse);
+	    	    return;
+	   
+	    		
+	         }
+	   
+	 }
+
     System.out.printf("Student %s %s, not found", userfname, userlname);
 
-
-  
 }
 
+
+
+public static void displaySpecificstudent(ArrayList<newStudent> list, String fname, String lname)
+{
+	if(list.size() == 0)
+	{
+		System.out.println("List is empty\n");
+		return;
+	}
+	
+	for(int i = 0; i < list.size(); i++)
+	{
+		if(fname.equals(list.get(i).getfname()) && lname.equals(list.get(i).getlname()))
+    	{
+			list.get(i).displayStudendetail();
+			return;
+    	}
+	}
+	
+	System.out.printf("Student %s %s, not found", fname, lname);
+	
+}
 
 
 public static void displayStudent(ArrayList<newStudent> list)
@@ -381,6 +766,21 @@ public static void displayStudent(ArrayList<newStudent> list)
 	for(int i = 0; i < list.size(); i++)
 	{
 		list.get(i).display();
+	}
+}
+
+
+public static void Displaystudentdetail(ArrayList<newStudent> list)
+{
+	if(list.size() == 0)
+	{
+		System.out.println("List is empty\n");
+		return;
+	}
+	
+	for(int i = 0; i < list.size(); i++)
+	{
+		list.get(i).displayStudendetail();
 	}
 }
     

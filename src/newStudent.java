@@ -1,5 +1,7 @@
 import java.util.*;
 
+//add error checking and empty checking for all functions
+
 public class newStudent
 {
   private int age;
@@ -8,6 +10,7 @@ public class newStudent
   private int grade;
   private String parentfname;
   private String parentlname;
+  private String parentfullname;
   private int parentcontact;
   private String address;
   private int balance;
@@ -28,6 +31,42 @@ public class newStudent
   }
   
   
+  public String getParent()
+  {
+	  return this.parentfname + this.parentlname;
+  }
+  
+  public void removeParent()
+  {
+	  this.parentfname = "";
+	  this.parentlname = "";
+	  this.parentfullname = "";
+	  this.parentcontact = 0;
+	  
+	  
+	  
+	  System.out.printf("parent removed\n");
+  }
+  
+  public void addParent(String fname, String lname, int c)
+  {
+	  this.parentfname = fname;
+	  this.parentlname = lname;
+	  
+	  this.parentfullname = fname + " " + lname;
+	  
+	  this.parentcontact = c;
+	  
+	  System.out.printf("%s %s added as parent\n", fname, lname);
+  }
+  
+  public void changeAdress(String addy)
+  {
+	  this.address = addy;
+	  System.out.printf("Address changed to %s\n", addy);
+  }
+  
+  
   public void addAddress(String addy)
   {
 	  this.address = addy;
@@ -45,6 +84,7 @@ public class newStudent
 	  this.absent++;
 	  System.out.println("Absent increased");
   }
+  
   
   public void displayBalance()
   {
@@ -115,7 +155,35 @@ public class newStudent
     	{
     		if(i == course.size() - 1)
     		{
-    			System.out.printf("%s\n", course.get(i));
+    			System.out.printf("%s\n--------------------", course.get(i));
+    		}
+    		else
+    		{
+    			System.out.printf("%s, ", course.get(i));
+    		}
+    		
+    	}
+    }
+    else
+    {
+    	return;
+    }
+  }
+  
+  
+  public void displayStudendetail()
+  {
+    System.out.printf("First name = %s, Last name = %s, Age = %d, Grade = %d, Address = %s, Parent = %s, Absent = %d, Balance = %d\n", fname, lname, age, grade, address, parentfullname, absent, balance);
+    
+    if(course.size() > 0)
+    {
+    	System.out.printf("Course: ");
+    	
+    	for(int i = 0; i < course.size(); i++)
+    	{
+    		if(i == course.size() - 1)
+    		{
+    			System.out.printf("%s\n---------------------", course.get(i));
     		}
     		else
     		{
